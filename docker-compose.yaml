@@ -1,3 +1,4 @@
 services:
   upnp:
     build: .
+    network_mode: host
