@@ -2,7 +2,9 @@
 
 This images provides a minimal image containing [MiniUPnPc][miniupnp], the MiniUPnP client.
 
-MiniUPnPc's `upnpc` command allows for opening and closing ports via UPnP. By building it in to a Docker container, it becomes possible to perform UPnP port operations as part of a Docker Compose stack for applications that might not do it themselves.
+MiniUPnPc's `upnpc` command allows for opening and closing ports via UPnP.
+
+Using `upnpc` in a Docker container makes it possible to add UPnP support for applications in a Docker Compose stack that might not support it themselves.
 
 [miniupnp]: https://miniupnp.tuxfamily.org/
 
