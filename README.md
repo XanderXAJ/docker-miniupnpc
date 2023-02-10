@@ -8,18 +8,40 @@ Using `upnpc` in a Docker container makes it possible to add UPnP support for ap
 
 [miniupnp]: https://miniupnp.tuxfamily.org/
 
+## Installation
+
+The container image is available from [Docker Hub][docker-hub] and [GitHub Packages][github-packages]:
+
+```python
+xanderxaj/miniupnpc           # Docker Hub
+ghcr.io/xanderxaj/miniupnpc   # GitHub Packages
+```
+
 ## Usage
 
-Build the image:
+Run the container image as if it is the `upnpc` command:
 
 ```shell
-docker compose build
+# Display usage information (technically this doesn't need host networking but it's kept for consistency)
+docker run --rm --net=host xanderxaj/miniupnpc -h
+
+# Forward internal TCP port 1234 to external port 12345
+docker run --rm --net=host xanderxaj/miniupnpc -r 1234 12345 TCP
+
+# Delete any forwarding rules exposed on external TCP port 12345 (deleting the previous forwarding rule)
+docker run --rm --net=host xanderxaj/miniupnpc -N 12345 12345 TCP
 ```
 
-Run the image as if it is the `upnpc` command:
+Since UPnP is a multicast protocol, the simplest way to ensure that the Docker container can both contact the router and apply the correct IP address to the port forwarding rule is to use host networking (e.g. as specified in `docker-compose.yaml` or by using `docker --net=host ...`).
+
+[docker-hub]: https://hub.docker.com/r/xanderxaj/miniupnpc
+[github-packages]: https://github.com/XanderXAJ/docker-miniupnpc/pkgs/container/miniupnpc
+
+## Build and run locally
+
+If you prefer to build and run it locally, a Docker Compose file has been provided to make it simple:
 
 ```shell
-docker compose run upnp -r 1234 12345 TCP
+# Display usage information
+docker compose run --build upnp -h
 ```
-
-Since UPnP is a multicast protocol, the simplest way to ensure that the Docker container can both contact the router and result in forwarding to the correct IP address is to use host networking (e.g. as specified in `docker-composr.yaml` or by using `docker --net=host ...`).
