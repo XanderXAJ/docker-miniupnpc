@@ -17,6 +17,21 @@ xanderxaj/miniupnpc           # Docker Hub
 ghcr.io/xanderxaj/miniupnpc   # GitHub Packages
 ```
 
+## Security
+
+The image is automatically rebuilt every day to ensure the latest versions of MiniUPnPc and the base image are pulled in.
+
+The images are signed using [Cosign][cosign] and the [Fulcio public CA][fulcio].
+The images can be verified by running:
+
+```shell
+COSIGN_EXPERIMENTAL=1 cosign verify xanderxaj/miniupnpc
+COSIGN_EXPERIMENTAL=1 cosign verify ghcr.io/xanderxaj/miniupnpc
+```
+
+[cosign]: https://github.com/sigstore/cosign
+[fulcio]: https://github.com/sigstore/fulcio
+
 ## Usage
 
 Run the container image as if it is the `upnpc` command:
@@ -37,7 +52,7 @@ Since UPnP is a multicast protocol, the simplest way to ensure that the Docker c
 [docker-hub]: https://hub.docker.com/r/xanderxaj/miniupnpc
 [github-packages]: https://github.com/XanderXAJ/docker-miniupnpc/pkgs/container/miniupnpc
 
-## Build and run locally
+### Build and run locally
 
 If you prefer to build and run it locally, a Docker Compose file has been provided to make it simple:
 
