@@ -1,4 +1,4 @@
-name: Docker (Docker.io)
+name: Publish Container Image (Docker Hub)
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
