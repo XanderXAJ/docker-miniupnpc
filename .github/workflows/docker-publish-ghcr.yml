@@ -2,7 +2,7 @@ name: Publish Container Image (GHCR)
 
 on:
   schedule:
-    - cron: '41 2 * * *'
+    - cron: '36 2 * * *'
   push:
     branches: [ "main" ]
     # Publish semver tags as releases.
