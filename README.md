@@ -25,8 +25,8 @@ The images are signed using [Cosign][cosign] and the [Fulcio public CA][fulcio].
 The images can be verified by running:
 
 ```shell
-COSIGN_EXPERIMENTAL=1 cosign verify xanderxaj/miniupnpc
-COSIGN_EXPERIMENTAL=1 cosign verify ghcr.io/xanderxaj/miniupnpc
+cosign verify --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' --certificate-identity-regexp 'https://github.com/XanderXAJ/docker-miniupnpc/.+@refs/heads/main' xanderxaj/miniupnpc
+cosign verify --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' --certificate-identity-regexp 'https://github.com/XanderXAJ/docker-miniupnpc/.+@refs/heads/main' ghcr.io/xanderxaj/miniupnpc
 ```
 
 [cosign]: https://github.com/sigstore/cosign
