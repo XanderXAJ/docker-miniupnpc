@@ -1,6 +1,6 @@
 # Docker MiniUPnPc
 
-This images provides a minimal image containing [MiniUPnPc][miniupnp], the MiniUPnP client.
+A minimal image containing [MiniUPnPc][miniupnp], the MiniUPnP client.
 
 MiniUPnPc's `upnpc` command allows for opening and closing ports via UPnP.
 
