@@ -14,7 +14,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ""
   # github.repository as <account>/<repo>
-  IMAGE_NAME: xanderxaj/miniupnpc
+  IMAGE_NAME: ${{ secrets.REGISTRY_USERNAME }}/miniupnpc
 
 
 jobs:
