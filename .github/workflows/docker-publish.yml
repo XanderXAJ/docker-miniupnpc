@@ -38,6 +38,7 @@ jobs:
         uses: sigstore/cosign-installer@v3
 
       - name: Cosign version
+        if: github.event_name != 'pull_request'
         run: cosign version
 
       - name: Setup Docker buildx
