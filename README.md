@@ -60,3 +60,11 @@ If you prefer to build and run it locally, a Docker Compose file has been provid
 # Display usage information
 docker compose run --build upnp -h
 ```
+
+You can test the PR workflows locally using [`act`](https://github.com/nektos/act).
+
+Only run this command on a trusted machine (e.g. a local machine) as the `GITHUB_TOKEN` will be available in process listings (e.g. `ps`):
+
+```shell
+act -s GITHUB_TOKEN="$(gh auth token)" pull_request
+```
